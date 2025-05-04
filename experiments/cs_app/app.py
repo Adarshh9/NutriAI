@@ -116,7 +116,7 @@ def recommend_foods(disease: str, k: int = 5, personal_factors=None):
     return {"recommend": recommend_foods, "avoid": avoid_foods}
 
 # Step 3: Initialize the Groq client
-client = Groq(api_key='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')
+client = Groq(api_key='YOUR_API_KEY')
 
 # Step 4: Define the reasoning function
 def generate_reasoning(disease: str, recommendations: dict):
