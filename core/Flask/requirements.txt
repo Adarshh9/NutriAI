@@ -1,0 +1,10 @@
+flask 
+pandas 
+joblib 
+torch 
+faiss-cpu 
+networkx 
+matplotlib 
+sentence-transformers 
+plotly 
+groq

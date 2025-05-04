@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Recommendations for {{ disease }}</h1>
+        <a href="/" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back
+        </a>
+    </div>
+
+    <ul class="nav nav-tabs mb-4" id="recommendationTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="recommendations-tab" data-bs-toggle="tab" 
+                    data-bs-target="#recommendations" type="button" role="tab" aria-controls="recommendations" aria-selected="true">
+                Recommendations
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="evidence-tab" data-bs-toggle="tab" 
+                    data-bs-target="#evidence" type="button" role="tab" aria-controls="evidence" aria-selected="false">
+                Scientific Evidence
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="analysis-tab" data-bs-toggle="tab" 
+                    data-bs-target="#analysis" type="button" role="tab" aria-controls="analysis" aria-selected="false">
+                Nutrient Analysis
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="recommendationTabsContent">
+        <!-- Recommendations Tab -->
+        <div class="tab-pane fade show active" id="recommendations" role="tabpanel" aria-labelledby="recommendations-tab">
+            <div class="row">
+                <!-- KG Recommendations -->
+                <div class="col-md-6">
+                    <h3 class="mb-3">Validated by Medical Knowledge</h3>
+                    {% if kg_recs %}
+                        {% for rec in kg_recs[:5] %}
+                            <div class="recommendation-card kg-card mb-3">
+                                <h4>✅ {{ rec.food }}</h4>
+                                <p class="text-muted"><em>{{ rec.evidence }}</em></p>
+                                
+                                <button class="btn btn-sm btn-outline-secondary" type="button" 
+                                        data-bs-toggle="collapse" data-bs-target="#nutrients-{{ loop.index }}">
+                                    View nutrients
+                                </button>
+                                
+                                <div class="collapse mt-2" id="nutrients-{{ loop.index }}">
+                                    <div class="row">
+                                        {% if rec.nutrients %}
+                                        <div class="col-md-6">
+                                            <h5>Key Nutrients (per 100g)</h5>
+                                            {% for nut in rec.nutrients %}
+                                                <span class="nutrient-badge">
+                                                    {{ nut.nutrient.title() }}: {{ nut.value }}
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                        
+                                        {% if rec.extra_nutrients %}
+                                        <div class="col-md-6">
+                                            <h5>Additional Nutrients</h5>
+                                            {% for nut in rec.extra_nutrients %}
+                                                <span class="nutrient-badge">
+                                                    {{ nut.nutrient }}: {{ nut.value }}
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-warning">
+                            No validated recommendations found for this disease.
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- GNN Recommendations -->
+                <div class="col-md-6">
+                    <h3 class="mb-3">AI-Predicted Suggestions</h3>
+                    {% if gnn_recs %}
+                        {% for food in gnn_recs %}
+                            {% set food_id = food|replace(' ', '-')|lower %}
+                            <div class="recommendation-card gnn-card mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4>{{ food }}</h4>
+                                    <button class="btn btn-sm btn-outline-primary explain-btn" 
+                                            data-food="{{ food }}" data-disease="{{ disease }}"
+                                            data-food-id="{{ food_id }}">
+                                        Explain
+                                    </button>
+                                </div>
+                                
+                                <div id="explanation-{{ food_id }}" class="mt-2" style="display: none;">
+                                    <div class="alert alert-info">
+                                        <strong>Scientific reason:</strong> 
+                                        <span id="explanation-text-{{ food_id }}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-warning">
+                            No AI predictions available for this disease.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Evidence Tab -->
+        <div class="tab-pane fade" id="evidence" role="tabpanel" aria-labelledby="evidence-tab">
+            {% if text_evidence %}
+                <div class="accordion" id="evidenceAccordion">
+                    {% for food, evidence in text_evidence.items() %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-{{ loop.index }}">
+                                <button class="accordion-button" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse-{{ loop.index }}"
+                                        aria-expanded="false" 
+                                        aria-controls="collapse-{{ loop.index }}">
+                                    Evidence for {{ food }}
+                                </button>
+                            </h2>
+                            <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" 
+                                 aria-labelledby="heading-{{ loop.index }}" 
+                                 data-bs-parent="#evidenceAccordion">
+                                <div class="accordion-body">
+                                    {% for doc in evidence %}
+                                        <div class="mb-3">
+                                            <h5>Study {{ loop.index }} (Relevance: {{ "%.0f"|format(doc.score * 100) }}%)</h5>
+                                            <p>{{ doc.text }}</p>
+                                            <p class="text-muted small">
+                                                Source: {{ doc.source }} | ID: {{ doc.id }}
+                                            </p>
+                                        </div>
+                                        {% if not loop.last %}
+                                            <hr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-warning">
+                    No literature evidence found for these recommendations.
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Nutrient Analysis Tab -->
+        <div class="tab-pane fade" id="analysis" role="tabpanel" aria-labelledby="analysis-tab">
+            {% if kg_recs %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Food</h5>
+                                <select class="form-select" id="food-selector">
+                                    {% for rec in kg_recs %}
+                                        <option value="{{ rec.food }}">{{ rec.food }}</option>
+                                    {% endfor %}
+                                </select>
+                                
+                                <div class="mt-3">
+                                    <button class="btn btn-primary" id="show-nutrients">
+                                        Show Nutrients
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="show-graph">
+                                        Show Knowledge Graph
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="nutrient-details" class="d-none">
+                            <h5>Complete Nutritional Profile</h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm" id="nutrient-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrient</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Nutrient Visualization</h5>
+                                <div id="nutrient-chart" style="height: 400px;">
+                                    <p class="text-muted text-center my-5">
+                                        Select a food to view nutrient visualization
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mt-4 d-none" id="graph-container">
+                            <div class="card-body">
+                                <h5 class="card-title">Knowledge Graph Connections</h5>
+                                <img id="graph-image" class="img-fluid" 
+                                     alt="Knowledge Graph Visualization">
+                                <p class="text-muted small mt-2">
+                                    Graph explanation: Red = Disease, Green = Recommended Food, 
+                                    Pink = Other Diseases, Light Green = Other Foods
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-warning">
+                    No nutrient data available for this disease.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Bootstrap tabs
+            var tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
+            tabEls.forEach(function(tabEl) {
+                tabEl.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var tab = new bootstrap.Tab(tabEl);
+                    tab.show();
+                });
+            });
+
+            // Handle explanation buttons
+            $('.explain-btn').click(function() {
+                const food = $(this).data('food');
+                const disease = $(this).data('disease');
+                const foodId = $(this).data('food-id');
+                const explanationDiv = $('#explanation-' + foodId);
+                
+                if (explanationDiv.is(':visible')) {
+                    explanationDiv.hide();
+                    return;
+                }
+                
+                // Show loading state
+                $('#explanation-text-' + foodId).html(
+                    '<i class="bi bi-hourglass"></i> Generating explanation...'
+                );
+                explanationDiv.show();
+                
+                // Fetch explanation
+                $.post('/get_explanation', {
+                    food: food,
+                    disease: disease
+                }, function(response) {
+                    $('#explanation-text-' + foodId).text(response.explanation);
+                }).fail(function() {
+                    $('#explanation-text-' + foodId).text('Failed to load explanation.');
+                });
+            });
+            
+            // Nutrient analysis
+            if ($('#food-selector').length) {
+                const nutrientData = {
+                    {% for rec in kg_recs %}
+                        '{{ rec.food }}': {
+                            nutrients: {{ rec.nutrients|tojson|safe }},
+                            extra_nutrients: {{ rec.extra_nutrients|tojson|safe }}
+                        },
+                    {% endfor %}
+                };
+                
+                $('#show-nutrients').click(function() {
+                    const selectedFood = $('#food-selector').val();
+                    const data = nutrientData[selectedFood];
+                    
+                    // Show nutrient details
+                    const $tableBody = $('#nutrient-table tbody');
+                    $tableBody.empty();
+                    
+                    // Combine all nutrients
+                    const allNutrients = [];
+                    if (data.nutrients) {
+                        allNutrients.push(...data.nutrients);
+                    }
+                    if (data.extra_nutrients) {
+                        allNutrients.push(...data.extra_nutrients);
+                    }
+                    
+                    // Populate table
+                    allNutrients.forEach(nutrient => {
+                        $tableBody.append(`
+                            <tr>
+                                <td>${nutrient.nutrient}</td>
+                                <td>${nutrient.value}</td>
+                            </tr>
+                        `);
+                    });
+                    
+                    $('#nutrient-details').removeClass('d-none');
+                    
+                    // Update chart
+                    if (data.nutrients && data.nutrients.length > 0) {
+                        const nutrients = data.nutrients.slice(0, 5);
+                        const trace = {
+                            x: nutrients.map(n => n.nutrient),
+                            y: nutrients.map(n => n.value),
+                            type: 'bar'
+                        };
+                        
+                        Plotly.newPlot('nutrient-chart', [trace], {
+                            title: `Key Nutrients in ${selectedFood}`,
+                            xaxis: { title: 'Nutrient' },
+                            yaxis: { title: 'Amount per 100g' }
+                        });
+                    }
+                });
+                
+                $('#show-graph').click(function() {
+                    const selectedFood = $('#food-selector').val();
+                    
+                    $.post('/visualize', {
+                        disease: '{{ disease }}',
+                        food: selectedFood
+                    }, function(response) {
+                        if (response.image) {
+                            $('#graph-image').attr('src', 'data:image/png;base64,' + response.image);
+                            $('#graph-container').removeClass('d-none');
+                        } else if (response.error) {
+                            alert(response.error);
+                        }
+                    }).fail(function() {
+                        alert('Failed to generate visualization');
+                    });
+                });
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4">🍏 NutriAI</h1>
+            <p class="lead">Food-Disease Recommendation System</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Find Food Recommendations</h2>
+                    
+                    <form action="/recommend" method="POST">
+                        <div class="mb-3">
+                            <label for="disease" class="form-label">Select a disease:</label>
+                            <select class="form-select" id="disease" name="disease" required>
+                                {% for disease in diseases %}
+                                    <option value="{{ disease }}">{{ disease }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-search"></i> Get Recommendations
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-4">
+                        <p>This system recommends foods based on:</p>
+                        <ul>
+                            <li><strong>Knowledge Graph</strong>: Structured medical knowledge</li>
+                            <li><strong>Graph Neural Network</strong>: AI-powered pattern recognition</li>
+                            <li><strong>Medical Literature</strong>: Evidence from scientific studies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

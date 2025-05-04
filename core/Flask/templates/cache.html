@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Cache Management</h1>
+        <a href="/" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back
+        </a>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card text-white bg-primary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Entries</h5>
+                            <p class="card-text display-6">{{ cache|length }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card text-white bg-success">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Max Size</h5>
+                            <p class="card-text display-6">{{ cache_manager.max_size }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST" class="mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search_term" 
+                           placeholder="Search cache..." value="{{ search_term or '' }}">
+                    <button class="btn btn-primary" type="submit" name="action" value="search">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+            </form>
+
+            <form method="POST">
+                <div class="d-flex justify-content-between mb-3">
+                    <button type="submit" class="btn btn-danger" name="action" value="clear">
+                        <i class="bi bi-trash"></i> Clear Cache
+                    </button>
+                </div>
+            </form>
+
+            {% if matches is not none %}
+                <h4 class="mt-4">Search Results ({{ matches|length }} matches)</h4>
+                {% if matches %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Value</th>
+                                    <th>Last Used</th>
+                                    <th>Usage Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for key, value in matches %}
+                                    <tr>
+                                        <td>{{ key }}</td>
+                                        <td>{{ value.value|truncate(50) }}</td>
+                                        <td>{{ value.metadata.last_used|format_time }}</td>
+                                        <td>{{ value.metadata.usage_count }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning">
+                        No cache entries match your search.
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if cache and not matches %}
+        <div class="card shadow">
+            <div class="card-header">
+                <h5 class="mb-0">Recent Cache Entries</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Value</th>
+                                <th>Last Used</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in cache.items() %}
+                                <tr>
+                                    <td>{{ key|truncate(30) }}</td>
+                                    <td>{{ value.value|truncate(50) }}</td>
+                                    <td>{{ value.metadata.last_used|format_time }}</td>
+                                    <td>{{ value.metadata.created_at|format_time }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

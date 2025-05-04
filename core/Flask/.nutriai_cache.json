@@ -1,0 +1,369 @@
+{
+  "cache": {
+    "('fruit', 'obesity')": {
+      "value": "Fruit's high fiber and water content can aid weight loss by promoting satiety and reducing caloric intake, while its natural sugars can contribute to weight gain if consumed excessively.",
+      "metadata": {
+        "last_used": 1746275166.0788248,
+        "usage_count": 2,
+        "response_time": 0.5614676475524902,
+        "created_at": 1746275160.2461166
+      }
+    },
+    "('beer', 'obesity')": {
+      "value": "Beer's calorie content contributes to obesity, whereas moderate consumption's potential benefits, such as improved insulin sensitivity and increased antioxidant intake, may offset weight gain in some individuals.",
+      "metadata": {
+        "last_used": 1746275168.3470232,
+        "usage_count": 2,
+        "response_time": 0.3400242328643799,
+        "created_at": 1746275160.8748536
+      }
+    },
+    "('tea', 'obesity')": {
+      "value": "Tea, particularly green tea, may aid in obesity management due to its catechin content, which can enhance fat oxidation, improve insulin sensitivity, and increase thermogenesis, potentially leading to weight loss and improved metabolic health.",
+      "metadata": {
+        "last_used": 1746275171.9012306,
+        "usage_count": 2,
+        "response_time": 0.36187124252319336,
+        "created_at": 1746275161.6006606
+      }
+    },
+    "('coffee', 'obesity')": {
+      "value": "Caffeine in coffee can aid weight loss by increasing thermogenesis and fat oxidation, but high sugar and cream additions can lead to excessive calorie intake, exacerbating obesity.",
+      "metadata": {
+        "last_used": 1746275183.968035,
+        "usage_count": 3,
+        "response_time": 0.3577888011932373,
+        "created_at": 1746275161.2354612
+      }
+    },
+    "('olive oil', 'obesity')": {
+      "value": "Olive oil's high monounsaturated fat content can aid in obesity by promoting satiety, improving insulin sensitivity, and reducing inflammation, while its high calorie density can exacerbate weight gain if consumed excessively.",
+      "metadata": {
+        "last_used": 1746275185.1829894,
+        "usage_count": 6,
+        "response_time": 0.2832775115966797,
+        "created_at": 1746275160.5318506
+      }
+    },
+    "('milk', 'hypercalciuria')": {
+      "value": "Milk's high calcium content may exacerbate hypercalciuria by increasing urinary calcium excretion, while its alkali load may help reduce stone formation by increasing citrate excretion and pH.",
+      "metadata": {
+        "last_used": 1746275392.4348512,
+        "usage_count": 1,
+        "response_time": 0.37787628173828125,
+        "created_at": 1746275392.4348514
+      }
+    },
+    "('ginger', 'hypercalciuria')": {
+      "value": "Ginger may exacerbate hypercalciuria by increasing urinary calcium excretion, as its active compound gingerol has been shown to inhibit renal calcium reabsorption in the kidneys.",
+      "metadata": {
+        "last_used": 1746275392.7711837,
+        "usage_count": 1,
+        "response_time": 0.33378005027770996,
+        "created_at": 1746275392.771184
+      }
+    },
+    "('fruits', 'hypercalciuria')": {
+      "value": "Fruits high in oxalate (e.g., kiwi, strawberries) may exacerbate hypercalciuria by increasing urinary oxalate excretion, while fruits rich in potassium (e.g., bananas) may help reduce urinary calcium excretion",
+      "metadata": {
+        "last_used": 1746275393.0508995,
+        "usage_count": 1,
+        "response_time": 0.2763843536376953,
+        "created_at": 1746275393.0508997
+      }
+    },
+    "('fruit', 'hypercalciuria')": {
+      "value": "Fruit can be beneficial for hypercalciuria by increasing urinary citrate excretion, which inhibits calcium stone formation, while high oxalate content in certain fruits, such as kiwi and rhubarb, may exacerbate the condition.",
+      "metadata": {
+        "last_used": 1746275393.4042988,
+        "usage_count": 1,
+        "response_time": 0.3484492301940918,
+        "created_at": 1746275393.404299
+      }
+    },
+    "('olive oil', 'hypercalciuria')": {
+      "value": "Olive oil's high oleic acid content may benefit hypercalciuria by reducing urinary oxalate excretion, while its high fat content may harm by increasing urinary calcium excretion.",
+      "metadata": {
+        "last_used": 1746275393.6731308,
+        "usage_count": 1,
+        "response_time": 0.26483893394470215,
+        "created_at": 1746275393.673131
+      }
+    },
+    "('shenzao jiannao oral liquid (szjn)', 'urinary stones')": {
+      "value": "SZJN, a traditional Chinese medicine, may be beneficial for urinary stones by reducing stone formation and promoting stone expulsion due to its diuretic and anti-inflammatory properties, which can help alleviate urinary stone disease.",
+      "metadata": {
+        "last_used": 1746275406.763795,
+        "usage_count": 1,
+        "response_time": 0.3168830871582031,
+        "created_at": 1746275406.7637951
+      }
+    },
+    "('ketogenic diet', 'urinary stones')": {
+      "value": "A ketogenic diet may be beneficial for urinary stones by reducing urinary oxalate and increasing citrate excretion, but may be harmful by increasing urinary uric acid and decreasing urinary pH.",
+      "metadata": {
+        "last_used": 1746275411.6946905,
+        "usage_count": 2,
+        "response_time": 0.31535935401916504,
+        "created_at": 1746275406.4435291
+      }
+    },
+    "('yogurt', 'urinary stones')": {
+      "value": "Yogurt's high calcium content may help reduce urinary oxalate levels, mitigating kidney stone risk, but its high animal protein and purine content may exacerbate uric acid stones.",
+      "metadata": {
+        "last_used": 1746275415.5825572,
+        "usage_count": 2,
+        "response_time": 0.44252681732177734,
+        "created_at": 1746275407.2097964
+      }
+    },
+    "('artichoke', 'urinary stones')": {
+      "value": "Artichoke may be beneficial for urinary stones by increasing urinary magnesium and citrate levels, which can inhibit stone formation, while its cynarin may also increase urinary oxalate excretion, potentially exacerbating calcium oxalate stones.",
+      "metadata": {
+        "last_used": 1746275416.6375082,
+        "usage_count": 2,
+        "response_time": 0.35834383964538574,
+        "created_at": 1746275407.572025
+      }
+    },
+    "('fresh tomato juice', 'urinary stones')": {
+      "value": "Fresh tomato juice may be beneficial for urinary stones due to its high water content and potassium, which can help flush out small stones and reduce stone formation by decreasing urinary calcium levels.",
+      "metadata": {
+        "last_used": 1746275418.1022525,
+        "usage_count": 1,
+        "response_time": 0.3759787082672119,
+        "created_at": 1746275418.1022527
+      }
+    },
+    "('fruit', 'kidney stones')": {
+      "value": "Fruit can be beneficial for kidney stones by providing citrate, potassium, and water content, which can help inhibit stone formation and increase urine pH, but high oxalate fruits like spinach, beets, and rhubarb may exacerbate calcium",
+      "metadata": {
+        "last_used": 1746285388.6077926,
+        "usage_count": 2,
+        "response_time": 0.8126609325408936,
+        "created_at": 1746285382.3631551
+      }
+    },
+    "('olive oil', 'kidney stones')": {
+      "value": "Olive oil's high oleic acid content may help reduce kidney stone risk by inhibiting stone-forming mineral precipitation, while its high oxalate levels may potentially exacerbate existing stones or increase risk in susceptible individuals.",
+      "metadata": {
+        "last_used": 1746285389.833593,
+        "usage_count": 2,
+        "response_time": 0.5240964889526367,
+        "created_at": 1746285382.8987052
+      }
+    },
+    "('coffee', 'kidney stones')": {
+      "value": "Coffee consumption may benefit kidney stone prevention by increasing urinary volume and citrate excretion, but may also exacerbate stone formation in susceptible individuals by increasing oxalate and uric acid excretion.",
+      "metadata": {
+        "last_used": 1746285390.7394176,
+        "usage_count": 2,
+        "response_time": 0.4477827548980713,
+        "created_at": 1746285383.3537261
+      }
+    },
+    "('fish oil', 'kidney stones')": {
+      "value": "Fish oil's omega-3 fatty acids may benefit kidney stones by reducing inflammation and urinary oxalate levels, but high doses may exacerbate stone formation by increasing urinary calcium excretion and altering gut microbiota.",
+      "metadata": {
+        "last_used": 1746285392.111484,
+        "usage_count": 2,
+        "response_time": 0.4950551986694336,
+        "created_at": 1746285384.4371417
+      }
+    },
+    "('tea', 'kidney stones')": {
+      "value": "Tea's high oxalate content may exacerbate kidney stone formation, while its antioxidants and diuretic properties may help reduce stone risk and alleviate symptoms by increasing urinary output and reducing oxidative stress.",
+      "metadata": {
+        "last_used": 1746285392.738751,
+        "usage_count": 2,
+        "response_time": 0.5627219676971436,
+        "created_at": 1746285383.9281769
+      }
+    },
+    "('beer', 'asthma')": {
+      "value": "Beer's antioxidants and bronchodilatory compounds, such as xanthohumol, may help relax airway muscles, improving asthma symptoms, but its allergenic ingredients, like sulfites and histamine, can trigger or worsen asthma attacks.",
+      "metadata": {
+        "last_used": 1746346323.6888099,
+        "usage_count": 9,
+        "response_time": 0.5695898532867432,
+        "created_at": 1746283192.350681
+      }
+    },
+    "('coffee', 'asthma')": {
+      "value": "Caffeine in moderate amounts (100-200mg) may benefit asthma by bronchodilating and relaxing airway muscles, while excessive consumption may worsen asthma by increasing airway hyperresponsiveness and inflammation.",
+      "metadata": {
+        "last_used": 1746346323.6903949,
+        "usage_count": 8,
+        "response_time": 0.6708736419677734,
+        "created_at": 1746283193.0335987
+      }
+    },
+    "('beans', 'asthma')": {
+      "value": "Beans contain antioxidants, fiber, and magnesium, which may help alleviate asthma symptoms by reducing inflammation and improving lung function, while their high fiber and phytic acid content may exacerbate symptoms in some individuals.",
+      "metadata": {
+        "last_used": 1746346323.6933289,
+        "usage_count": 7,
+        "response_time": 0.5311243534088135,
+        "created_at": 1746283193.5820937
+      }
+    },
+    "('olive oil', 'asthma')": {
+      "value": "Olive oil's anti-inflammatory properties, particularly oleocanthal, may help reduce airway inflammation and bronchodilation, potentially alleviating symptoms, while its high oleic acid content might exacerbate asthma by increasing arachidonic acid production.",
+      "metadata": {
+        "last_used": 1746346326.7840636,
+        "usage_count": 10,
+        "response_time": 0.791292667388916,
+        "created_at": 1746283191.7616558
+      }
+    },
+    "('fruit', 'asthma')": {
+      "value": "Fruit's high antioxidant content may alleviate asthma by reducing oxidative stress and inflammation, while its high sugar and allergenic protein content may exacerbate symptoms in some individuals.",
+      "metadata": {
+        "last_used": 1746346327.6177077,
+        "usage_count": 10,
+        "response_time": 0.7269234657287598,
+        "created_at": 1746283190.9484959
+      }
+    },
+    "('yogurt', 'abdominal pain')": {
+      "value": "Yogurt's probiotics can alleviate abdominal pain by modulating the gut-brain axis, improving gut motility, and decreasing inflammation, but high sugar or lactose content can worsen symptoms in certain individuals.",
+      "metadata": {
+        "last_used": 1746346450.2624164,
+        "usage_count": 22,
+        "response_time": 0.46811795234680176,
+        "created_at": 1746273640.521549
+      }
+    },
+    "('soy foods', 'abdominal pain')": {
+      "value": "Soy foods may alleviate abdominal pain by providing isoflavones, which modulate gut microbiota, reduce inflammation, whereas high phytoestrogen levels may exacerbate pain in individuals with estrogen-sensitive gastrointestinal disorders.",
+      "metadata": {
+        "last_used": 1746346450.2642794,
+        "usage_count": 33,
+        "response_time": 1.2358639240264893,
+        "created_at": 1746274672.9524539
+      }
+    },
+    "('cocoa plant', 'abdominal pain')": {
+      "value": "Cocoa flavanols may alleviate abdominal pain by reducing inflammation and improving gut motility, while high sugar and fat content in cocoa products may exacerbate pain due to gut dysbiosis and increased inflammation.",
+      "metadata": {
+        "last_used": 1746346450.2669733,
+        "usage_count": 24,
+        "response_time": 0.29301977157592773,
+        "created_at": 1746273641.0961783
+      }
+    },
+    "('vaccinium macrocarpon', 'abdominal pain')": {
+      "value": "Vaccinium macrocarpon, also known as cranberry, may alleviate abdominal pain by inhibiting E. coli adhesion and biofilm formation, thereby reducing urinary tract infections and potential relief from related abdominal discomfort.",
+      "metadata": {
+        "last_used": 1746346450.2699938,
+        "usage_count": 21,
+        "response_time": 0.403613805770874,
+        "created_at": 1746273641.505555
+      }
+    },
+    "('extra virgin olive oil', 'abdominal pain')": {
+      "value": "Extra virgin olive oil's anti-inflammatory properties, particularly oleocanthal, may help alleviate inflammatory abdominal pain, while its high polyphenol content may irritate the gut lining, exacerbating abdominal pain in certain individuals.",
+      "metadata": {
+        "last_used": 1746346450.2727392,
+        "usage_count": 20,
+        "response_time": 0.3057289123535156,
+        "created_at": 1746273641.8146367
+      }
+    },
+    "('green tea', 'anemia deficiency')": {
+      "value": "Green tea's high polyphenol content may exacerbate anemia by inhibiting iron absorption, while its catechin antioxidants may help reduce oxidative stress and inflammation, potentially alleviating anemia symptoms.",
+      "metadata": {
+        "last_used": 1746346529.5557125,
+        "usage_count": 2,
+        "response_time": 0.9792132377624512,
+        "created_at": 1746346522.8646517
+      }
+    },
+    "('ketogenic diet', 'anemia deficiency')": {
+      "value": "The ketogenic diet may exacerbate anemia in individuals with iron or B12 deficiencies due to the diet's high fat and low fiber content, which can inhibit iron absorption and worsen hematological symptoms.",
+      "metadata": {
+        "last_used": 1746346534.1406085,
+        "usage_count": 2,
+        "response_time": 0.5879678726196289,
+        "created_at": 1746346523.457315
+      }
+    },
+    "('oryza sativa', 'anemia deficiency')": {
+      "value": "Oryza sativa (rice) is beneficial for anemia due to its high iron content, which can help increase hemoglobin levels, while its phytic acid content may be harmful by inhibiting iron absorption.",
+      "metadata": {
+        "last_used": 1746346535.3014393,
+        "usage_count": 2,
+        "response_time": 0.6689567565917969,
+        "created_at": 1746346524.1315992
+      }
+    },
+    "('cinnamomum', 'anemia deficiency')": {
+      "value": "Cinnamomum's iron-chelating properties may worsen anemia by reducing iron absorption, but its antioxidant and anti-inflammatory effects may help mitigate oxidative stress and inflammation, which can contribute to anemia's underlying pathophysiology.",
+      "metadata": {
+        "last_used": 1746346536.8698862,
+        "usage_count": 2,
+        "response_time": 0.4469490051269531,
+        "created_at": 1746346524.5836155
+      }
+    },
+    "('fermented foods', 'anemia deficiency')": {
+      "value": "Fermented foods rich in vitamin C and iron, such as sauerkraut and kimchi, may improve anemia by enhancing iron absorption, while those high in phytates, like fermented soybeans, can inhibit iron absorption and exacerb",
+      "metadata": {
+        "last_used": 1746346538.0399778,
+        "usage_count": 2,
+        "response_time": 0.45535802841186523,
+        "created_at": 1746346525.043312
+      }
+    }
+  },
+  "q_values": {
+    "(4, 0)": {
+      "cache": 1.0520191663865812,
+      "no_cache": 0
+    },
+    "(2, 0)": {
+      "cache": 1.031480061764066,
+      "no_cache": 0.11456444998977489
+    },
+    "(3, 0)": {
+      "cache": 1.0166761438369296,
+      "no_cache": 0.12308605500322348
+    },
+    "(5, 0)": {
+      "cache": 1.2530044125392605,
+      "no_cache": 0
+    },
+    "(2, 1)": {
+      "cache": 1.0423979788446627,
+      "no_cache": 0
+    },
+    "(3, 1)": {
+      "cache": 1.1347153941685173,
+      "no_cache": 0
+    },
+    "(3, 2)": {
+      "cache": 1.0595148617085726,
+      "no_cache": 0
+    },
+    "(4, 2)": {
+      "cache": 1.0266396310091628,
+      "no_cache": 0
+    },
+    "(2, 2)": {
+      "cache": 1,
+      "no_cache": 0.11296555434656315
+    },
+    "(5, 2)": {
+      "cache": 1.2451428209570001,
+      "no_cache": 0
+    },
+    "(5, 3)": {
+      "cache": 1.198701012311278,
+      "no_cache": 0
+    },
+    "(4, 3)": {
+      "cache": 1.1100177647223997,
+      "no_cache": 0
+    }
+  }
+}

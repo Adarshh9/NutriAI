@@ -1,0 +1,50 @@
+{
+  "cache": {
+    "('yogurt', 'abdominal pain')": {
+      "value": "Yogurt's probiotics can alleviate abdominal pain by promoting a balanced gut microbiota, reducing inflammation, and improving digestion, while its lactose and FODMAPs can exacerbate pain in individuals with lactose intolerance or irritable bowel syndrome.",
+      "metadata": {
+        "last_used": 1746268358.7064948,
+        "usage_count": 1,
+        "response_time": 1.3599872589111328,
+        "created_at": 1746268358.706496
+      }
+    },
+    "('milk consumption', 'bone loss')": {
+      "value": "Milk consumption may benefit bone health by providing calcium and protein, which can stimulate osteoblast activity and increase bone density, potentially mitigating age-related bone loss.",
+      "metadata": {
+        "last_used": 1746268699.2086809,
+        "usage_count": 1,
+        "response_time": 0.5696353912353516,
+        "created_at": 1746268699.208682
+      }
+    },
+    "('olive oil', 'bone loss')": {
+      "value": "Olive oil's high levels of oleocanthal, a potent anti-inflammatory, may help reduce osteoclast activity and inflammation, potentially mitigating bone loss.",
+      "metadata": {
+        "last_used": 1746269374.9144173,
+        "usage_count": 1,
+        "response_time": 1.0455503463745117,
+        "created_at": 1746269374.9144177
+      }
+    },
+    "('fruit', 'bone loss')": {
+      "value": "Fruit, rich in potassium, vitamin C, and antioxidants, may help mitigate bone loss by promoting calcium absorption, reducing inflammation, and enhancing bone cell function, while excessive sugar and acid content may contribute to demineralization and bone resorption.",
+      "metadata": {
+        "last_used": 1746269394.8930943,
+        "usage_count": 2,
+        "response_time": 0.32065916061401367,
+        "created_at": 1746268726.6337433
+      }
+    }
+  },
+  "q_values": {
+    "(5, 0)": {
+      "cache": 1.2091083755786436,
+      "no_cache": 0
+    },
+    "(3, 0)": {
+      "cache": 1.0178130976059045,
+      "no_cache": 0.12197864261708538
+    }
+  }
+}
