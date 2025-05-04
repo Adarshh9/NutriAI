@@ -10,7 +10,7 @@ with open("rf_model.pkl", "rb") as f:
 combined_train_data = pd.read_csv("combined_train_data.csv")
 
 # Initialize Groq client
-client = Groq(api_key='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')
+client = Groq(api_key='YOUR_API_KEY')
 
 # Streamlit UI
 st.title("🍏 NutriMumbai AI")
